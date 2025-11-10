@@ -1,5 +1,6 @@
 package exercises;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -56,15 +57,20 @@ public class TowersVariations {
      * @param mid  middle peg (must be used for every move)
      * @param to   destination peg label
      */
-    public static void solveVariation(int n, int from, int mid, int to) {
-        // TODO 1: Base case — if n == 0 → return.
 
-        // TODO 2: Recursive case —
-        //  a) Move n-1 disks from 'from' to 'mid' (using 'to' as helper)
-        //  b) Move disk n from 'from' to 'to' — BUT must go through 'mid':
-        //        System.out.printf("Move disk %d: %d → %d → %d%n", n, from, mid, to);
-        //     or if counting only: count += 2; // because two moves required
-        //  c) Move n-1 disks from 'mid' to 'to' (using 'from' as helper)
+
+    public static void solveVariation(int n, int from, int mid, int to) {
+
+        if(n==0){
+            return;
+        }
+        solveVariation(n-1, from, to, mid);
+        solveVariation(n-1, from, to, mid);
+        count +=2;
+        System.out.printf("Move disk %d: %d → %d → %d%n", n, from, mid, to);
+        solveVariation(n-1, mid, from, to);
+
+
     }
 
     public static void main(String[] args) {
