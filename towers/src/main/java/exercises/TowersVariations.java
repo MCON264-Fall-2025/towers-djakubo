@@ -1,6 +1,5 @@
 package exercises;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -65,7 +64,7 @@ public class TowersVariations {
             return;
         }
         solveVariation(n-1, from, to, mid);
-        solveVariation(n-1, from, to, mid);
+        solveVariation(n-1, mid, from, to);
         count +=2;
         System.out.printf("Move disk %d: %d → %d → %d%n", n, from, mid, to);
         solveVariation(n-1, mid, from, to);
